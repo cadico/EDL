@@ -1,4 +1,4 @@
-# Expressividade em Scala - Lambda
+# Expressividade em Scala - Lazy Evaluation
 
 ## Introdução
 
@@ -49,8 +49,63 @@ caso seja alterado o tipo de uma variável.
  E como dito anteriormente, Empresas importantes como o Twitter, Foursquare, Linkedin e Quora adotaram a linguagem para desenvolvimento de seus serviços. Uma das primeiras diferenças entre Scala e uma linguagem como Java é que Scala tem maior
 foco no paradigma funcional.
 
+## Exemplos de Código
 
+### Hello World!
 
+#### Scala
+
+```Scala
+object HelloWorld {
+    def main(args: Array[String]): Unit = {
+      println("Hello, world!")
+    }
+}
+```
+
+#### Java
+
+```Java
+class HelloWorld {
+    public static void main(String args[]) { 
+        System.out.println("Hello, World"); 
+    } 
+}
+```
+
+### Factorial (Recursivo)
+
+#### Scala
+
+```Scala
+object FactorialRecursion {
+    def main(args: Array[String]) {
+        println(factorial(5))
+    }
+    def factorial(n: Int): Int = {
+        if (n == 0) 
+            return 1
+        else
+            return n * factorial(n - 1)
+    }
+}
+```
+
+#### Java
+
+```Java
+class FactorialRecursion {  
+    static int factorial(int n) {    
+        if (n == 0)    
+            return 1;    
+        else    
+            return(n * factorial(n - 1));    
+    }    
+    public static void main(String args[]) {  
+        System.out.println(factorial(5));    
+    }  
+}  
+```
 
  
 

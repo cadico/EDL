@@ -8,7 +8,7 @@
 
  Scala foi originalmente escrito por Martin Odersky e seu grupo na École Polytechnique Federale de Lausanne, na Suíça. Seu trabalho anterior incluiu a criação da linguagem Funnel, que compartilhava algumas características com o Scala, mas não empregava as JVMs como mecanismo de execução. Odersky começou a trabalhar no Scala em 2001 e continua a desempenhar um papel de liderança no seu desenvolvimento.
  
- Scala não é uma extensão de Java, apesar de ser similar ao mesmo, mas é completamente interoperável com ele. Scala traduz para Java bytecodes, e a eficiência de compilar programas é igualmente ao do Java. Uma segunda implementação de Scala compila **.NET**. O design do Scala começou em 2001. Um primeiro lançamento ao público foi em 2003. Em 2006, uma segunda, versão remodelada foi lançada como Scala v 2.0. Desde então a linguagem tem ganhado popularidade.
+ Scala não é uma extensão de Java, apesar de ser similar ao mesmo, mas é completamente interoperável com ele. Scala traduz para Java bytecodes, e a eficiência de compilar programas é igualmente ao do Java. Uma segunda implementação de Scala compila **.NET**. O design do Scala começou em 2001. Um primeiro lançamento ao público foi em 2003. Em 2006, uma segunda versão remodelada foi lançada como Scala v 2.0. Desde então a linguagem tem ganhado popularidade.
 
  Em Janeiro de 2011, uma bolsa de pesquisa de cinco anos foi concedida ao grupo Scala, pelo Conselho Europeu de Investigação (CEI) com o valor total de €2,3 milhões. Já em Maio do mesmo ano, Odersky e seus colaboradores lançaram uma empresa, a Typesafe Inc. (posteriormente viria a ser chamada de Lightbend Inc.), a qual tinha como intuito fornecer à Scala suporte comercial, treinamento e serviços diversos. Isso só foi possível em decorrência do investimento que a Typesafe recebeu da Greylock Partners, no valor de $3 milhões. 
  
@@ -29,7 +29,7 @@
  
  Classes em Scala são templates estáticos que podem ser instanciados como vários objetos em tempo de execução.
 
- Scala é também uma linguagem funcional e fornece uma sintaxe "leve" para definição de funções anônimas, suporta funções de alta ordem, permite que funções sejam aninhadas (funções são passadas como parâmetros dentro de outras funções, são tratadas como objetos), e suporta currying. Classes Scala e seu suporte interno para pattern matching modela tipos algébricos usados em muitas linguagens de programação funcionais. Além disso, sua noção de "pattern matching" natural é estendida para o processamento de arquivos XML com a ajuda de expressões regulares. Neste contexto, a linguagem se torna de grande valia para o processamento de sintaxes futuras. Estas características, fazem com que o Scala seja ideal para o desenvolvimento de aplicações como web services.
+ Scala é também uma linguagem funcional e fornece uma sintaxe "leve" para definição de funções anônimas, suporta funções de alta ordem, permite que funções sejam aninhadas (funções são passadas como parâmetros dentro de outras funções, são tratadas como objetos), e suporta currying. Classes Scala e seu suporte interno para pattern matching modela tipos algébricos usados em muitas linguagens de programação funcionais. Além disso, sua noção de "pattern matching" natural é estendida para o processamento de arquivos XML com a ajuda de expressões regulares. Neste contexto, a linguagem se torna de grande valia para o processamento de sintaxes futuras. Estas características fazem com que o Scala seja ideal para o desenvolvimento de aplicações como web services.
  ```
  - Pattern Matching: Funciona mais ou menos como um Switch/Case, mas é muito mais poderoso,
  permitindo a comparação utilizando expressões regulares.
@@ -46,7 +46,7 @@ a compilação, fazendo com que o programador não se preocupe tanto pois o comp
 caso seja alterado o tipo de uma variável.
 ```
  
- E como dito anteriormente, Empresas importantes como o Twitter, Foursquare, Linkedin e Quora adotaram a linguagem para desenvolvimento de seus serviços. Uma das primeiras diferenças entre Scala e uma linguagem como Java é que Scala tem maior
+ E como dito anteriormente, empresas importantes como o Twitter, Foursquare, Linkedin e Quora adotaram a linguagem para desenvolvimento de seus serviços. Uma das primeiras diferenças entre Scala e uma linguagem como Java é que Scala tem maior
 foco no paradigma funcional.
 
 ## Exemplos de Código

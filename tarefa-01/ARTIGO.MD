@@ -107,7 +107,7 @@ class FactorialRecursion {
 
 ## Lazy Evaluation
 
-Lazy Evaluation, ou "avaliação preguiçosa", é uma técnica de avaliação de expressões muito utilizada em programação funcional. Scala suporta tanto Strict Evaluation (como Java), quanto Lazy Evaluation (como Haskell), mas utiliza a primeira como padrão.
+Lazy Evaluation, ou "avaliação preguiçosa", é uma técnica de avaliação de expressões muito utilizada em programação funcional. Scala suporta tanto Strict Evaluation (como Java), quanto Lazy Evaluation (como Haskell), mas utiliza a primeira como padrão. Variáveis ou expressões Lazy, uma vez que avaliadas, não podem ter o seu valor alterado.
 
 ### Como funciona?
 
@@ -119,11 +119,21 @@ lazy val x = 10
 
 Assim, esse valor só será atribuído à variável quando esta for requerida/utilizada.
 
+### Prós
+
+- Processo de computação otimizado, já que o cálculo de expressões só é feito quando necessário.
+- Possibilita a criação de estruturas de dados "infinitas".
+- Ajuda a resolver problemas de dependência circular.
+
+### Contras
+- Debugar o código pode se tornar uma tarefa complicada.
+- Acompanhar a execução das expressões Lazy se torna um pouco confuso, fazendo com que o programador possa se perder no processo.
+
 ### Exemplos
 
 #### Variável Lazy
 
-```console
+```bash
 scala> val x = 10
 x: Int = 10
 
@@ -133,8 +143,83 @@ y: Int = <lazy>
 scala> y
 res0: Int = 20
 ```
+Nesse exemplo, pode-se perceber que: a variável y só foi inicializada quando foi utilizada.  
 
-Nesse exemplo, pode-se perceber que: a variável y só foi inicializada quando foi utilizada.
+Em Java:
+
+```Java
+int x = 10;
+```
+
+Ao final dessa expressão, o valor de x será armazenado e já estará pronto para uso
+
+#### Parâmetros "Call By Name"
+
+Nesse caso, os parâmetros passados para a função, sejam eles valores ou expressões, só serão avaliados quando estes forem usados dentro da própria função.
+
+```Scala
+object exemploparam {
+    
+    def main(args: Array[String]) : Unit = {
+        exemploStatic(add(2,3))
+        exemploLazy(add(2,3))
+    }
+
+    def add(a: Int, b: Int) : Int = {
+        println("adicionando...");
+        a+b
+    }
+    
+    def exemploLazy(x: => Int) : Unit = {
+       println("exemplificando Lazy...")
+       println(x)
+    }
+
+    def exemploStatic(x: Int) : Unit = {
+        println("exemplificando Static...")
+        println(x)
+    }
+}
+```
+Output:
+
+```bash
+>scalac exemploparam.scala
+>scala exemploparam
+adicionando...
+exemplificando Static...
+5
+exemplificando Lazy...
+adicionando...
+5
+```
+Nesse exemplo, é possível enxergar que: no método estático, a função de soma foi chamada primeiramente para calcular o valor da expressão passada como argumento, já no método Lazy, este é executado e só chama a função de soma quando a expressão passada como argumento foi utilizada dentro do próprio método Lazy. A forma avaliação de expressões de outras linguagens estáticas como Java, por exemplo, segue o mesmo padrão do utilizado no padrão de Scala (expressões são avaliadas imediatamente), porém estas não oferecem a possibilidade de utilizar Lazy Evaluation.
+
+
+#### Estruturas "Infinitas"
+
+Nesse caso, será usado como exemplo os Streams (ou LazyLists) em Scala ("uma versão Lazy das Listas"). As "LazyLists" funcionam de forma parecida com o que seria uma Lista Encadeada em C, por exemplo. 
+
+```bash
+scala> import Stream.cons
+import Stream.cons
+
+scala> def addLazyList(n: Int): LazyList[Int] = LazyList.cons(n, addLazyList(n+1))
+addLazyList: (n: Int)LazyList[Int]
+
+scala> val positiveintegers = addLazyList(0)
+positiveintegers: LazyList[Int] = LazyList(<not computed>)
+
+scala> positiveintegers.take(6) foreach println
+0
+1
+2
+3
+4
+5
+```
+
+Nesse exemplo, a LazyList (variável positiveintegers) só é computada quando usamos a mesma. A ideia das LazyLists serem uma "estrutura infinita" vem do fato de que, como estas serão computadas somente em tempo de execução, o tamanho delas será definido também em tempo de execução, logo tem-se uma estrutura "do tamanho desejado" para trabalhar. Em Java, as Listas têm de ser instanciadas e os valores adicionados um a um.
 
 ## Bibliografia
 
@@ -145,3 +230,6 @@ Nesse exemplo, pode-se perceber que: a variável y só foi inicializada quando f
  * Conheça a linguagem Scala: https://www.devmedia.com.br/conheca-a-linguagem-scala/32850
  * Wikipedia: https://pt.wikipedia.org/wiki/Scala_(linguagem_de_programa%C3%A7%C3%A3o)
  * Diferença entre tipagens: http://felipequadros.com/programa%C3%A7%C3%A3o/b%C3%A1sico/iniciante/geral/teoria/2016/06/05/tipagem-fraca-forte-est%C3%A1tica-din%C3%A2mica-e-inferencia-de-tipo/
+ * Lazy Evaluation: https://www.geeksforgeeks.org/scala-lazy-evaluation/
+ * Lazy Evaluation: https://dzone.com/articles/scala-lazy-evaluation
+ * Parâmetros "Call By Name": https://stackoverflow.com/questions/13337338/call-by-name-vs-call-by-value-in-scala-clarification-needed

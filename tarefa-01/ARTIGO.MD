@@ -1,5 +1,3 @@
-# Expressividade em Scala - Lazy Evaluation
-
 ## Introdução
 
  ***Scala*** é uma linguagem de programação de software que mistura métodos orientados a objetos com recursos de programação funcional que suportam um estilo de programação mais conciso do que outras linguagens de uso geral, como Java, reduzindo a quantidade de código que os desenvolvedores precisam escrever. Outro benefício da abordagem combinada objeto-funcional é que os recursos que funcionam bem em pequenos programas tendem a aumentar a eficiência quando executados em ambientes maiores.
@@ -107,8 +105,36 @@ class FactorialRecursion {
 }  
 ```
 
- 
+## Lazy Evaluation
 
+Lazy Evaluation, ou "avaliação preguiçosa", é uma técnica de avaliação de expressões muito utilizada em programação funcional. Scala suporta tanto Strict Evaluation (como Java), quanto Lazy Evaluation (como Haskell), mas utiliza a primeira como padrão.
+
+### Como funciona?
+
+A Lazy Evaluation consiste em: qualquer expressão desse tipo só será avaliada no momento em que for utilizada, ou seja, se uma variável é declarada, sem especificação, em Scala, o valor será atribuído imediatamente à ela pois Scala usa, por padrão, a forma estrita de avaliação. Para utilizar de forma "lazy" as variáveis ou expressões é preciso especificar explicitamente esta intenção dessa forma:
+
+``` Scala
+lazy val x = 10
+```
+
+Assim, esse valor só será atribuído à variável quando esta for requerida/utilizada.
+
+### Exemplos
+
+#### Variável Lazy
+
+```console
+scala> val x = 10
+x: Int = 10
+
+scala> lazy val y = 20
+y: Int = <lazy>
+
+scala> y
+res0: Int = 20
+```
+
+Nesse exemplo, pode-se perceber que: a variável y só foi inicializada quando foi utilizada.
 
 ## Bibliografia
 

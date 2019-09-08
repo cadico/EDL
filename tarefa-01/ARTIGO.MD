@@ -119,15 +119,16 @@ lazy val x = 10
 
 Assim, esse valor só será atribuído à variável quando esta for requerida/utilizada.
 
-### Prós
+### Prós (vs linguagens estáticas)
 
 - Processo de computação otimizado, já que o cálculo de expressões só é feito quando necessário.
 - Possibilita a criação de estruturas de dados "infinitas".
 - Ajuda a resolver problemas de dependência circular.
 
-### Contras
+### Contras (vs linguagens estáticas)
+
 - Debugar o código pode se tornar uma tarefa complicada.
-- Acompanhar a execução das expressões Lazy se torna um pouco confuso, fazendo com que o programador possa se perder no processo.
+- Acompanhar a execução de expressões desse tipo se torna um pouco confuso, fazendo com que o programador possa se perder no processo.
 
 ### Exemplos
 
@@ -145,9 +146,9 @@ res0: Int = 20
 ```
 Nesse exemplo, pode-se perceber que: a variável y só foi inicializada quando foi utilizada.  
 
-Em Java:
+Em C++:
 
-```Java
+```CPP
 int x = 10;
 ```
 
@@ -193,7 +194,10 @@ exemplificando Lazy...
 adicionando...
 5
 ```
-Nesse exemplo, é possível enxergar que: no método estático, a função de soma foi chamada primeiramente para calcular o valor da expressão passada como argumento, já no método Lazy, este é executado e só chama a função de soma quando a expressão passada como argumento foi utilizada dentro do próprio método Lazy. A forma avaliação de expressões de outras linguagens estáticas como Java, por exemplo, segue o mesmo padrão do utilizado no padrão de Scala (expressões são avaliadas imediatamente), porém estas não oferecem a possibilidade de utilizar Lazy Evaluation.
+Nesse exemplo, é possível enxergar que: no método estático, a função de soma foi chamada primeiramente para calcular o valor da expressão passada como argumento, já no método Lazy, este é executado e só chama a função de soma quando a expressão passada como argumento foi utilizada dentro do próprio método Lazy. A forma avaliação de expressões de outras linguagens estáticas como C++, por exemplo, segue o mesmo padrão do utilizado por default em Scala (expressões são avaliadas imediatamente), porém estas não oferecem a possibilidade de utilizar Lazy Evaluation:
+
+```CPP 
+```
 
 
 #### Estruturas "Infinitas"
@@ -219,7 +223,28 @@ scala> positiveintegers.take(6) foreach println
 5
 ```
 
-Nesse exemplo, a LazyList (variável positiveintegers) só é computada quando usamos a mesma. A ideia das LazyLists serem uma "estrutura infinita" vem do fato de que, como estas serão computadas somente em tempo de execução, o tamanho delas será definido também em tempo de execução, logo tem-se uma estrutura "do tamanho desejado" para trabalhar. Em Java, as Listas têm de ser instanciadas e os valores adicionados um a um.
+Nesse exemplo, a LazyList (variável positiveintegers) só é computada quando usamos a mesma. A ideia das LazyLists serem uma "estrutura infinita" vem do fato de que, como estas serão computadas somente em tempo de execução, o tamanho delas será definido também em tempo de execução, logo tem-se uma estrutura "do tamanho desejado" para trabalhar. Em C++, as Listas têm de ser inicializadas e um espaço de memória tem de ser alocado para que o programa possa funcionar corretamente.
+
+```CPP
+#include <iostream>
+#include <list>
+
+using namespace std;
+
+int main()
+{
+    list<int> lista;
+    for (int i = 0; i < 6; i++){
+        lista.push_back(i);
+    }
+    for (int i : lista){
+        cout << i << endl;
+    }
+    return 0;
+}
+```
+
+Em C++, a Lista já é atribuída imediatamente após a expressão, o que se faz é adicionar um elemento por vez porém, de qualquer forma, há a necessidade de saber quantos elementos serão colocados.
 
 ## Bibliografia
 

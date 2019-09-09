@@ -197,8 +197,34 @@ adicionando...
 Nesse exemplo, é possível enxergar que: no método estático, a função de soma foi chamada primeiramente para calcular o valor da expressão passada como argumento, já no método Lazy, este é executado e só chama a função de soma quando a expressão passada como argumento foi utilizada dentro do próprio método Lazy. A forma avaliação de expressões de outras linguagens estáticas como C++, por exemplo, segue o mesmo padrão do utilizado por default em Scala (expressões são avaliadas imediatamente), porém estas não oferecem a possibilidade de utilizar Lazy Evaluation:
 
 ```CPP 
+#include <iostream>
+
+using namespace std;
+
+int add(int a, int b) {
+    cout << "adicionando..." << endl;
+    return (a+b);
+}
+
+void exemploStatic(int x) {
+    cout << "exemplificando Static..." << endl << x << endl;
+}
+
+int main() {
+    exemploStatic(add(2,3));
+    return 0;
+}
+```
+Output:
+
+```bash
+> ./a.exe
+adicionando...
+exemplificando Static...
+5
 ```
 
+Em C++ os parâmetros são calculados antes de a função ser iniciada, da mesma forma que o padrão em Scala.
 
 #### Estruturas "Infinitas"
 
@@ -258,3 +284,4 @@ Em C++, a Lista já é atribuída imediatamente após a expressão, o que se faz
  * Lazy Evaluation: https://www.geeksforgeeks.org/scala-lazy-evaluation/
  * Lazy Evaluation: https://dzone.com/articles/scala-lazy-evaluation
  * Parâmetros "Call By Name": https://stackoverflow.com/questions/13337338/call-by-name-vs-call-by-value-in-scala-clarification-needed
+ * Estruturas infinitas ou Lazy sequences: https://dzone.com/articles/scala-lazy-evaluation

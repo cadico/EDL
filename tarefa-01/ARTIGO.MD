@@ -1,52 +1,59 @@
 ## Introdução
 
- ***Scala*** é uma linguagem de programação de software que mistura métodos orientados a objetos com recursos de programação funcional que suportam um estilo de programação mais conciso do que outras linguagens de uso geral, como Java, reduzindo a quantidade de código que os desenvolvedores precisam escrever. Outro benefício da abordagem combinada objeto-funcional é que os recursos que funcionam bem em pequenos programas tendem a aumentar a eficiência quando executados em ambientes maiores.
+ ***Scala*** é uma linguagem de programação de software de propósito geral, multi-paradigma, com conceitos de orientação a objetos e com recursos de programação funcional que suportam um estilo de programação mais conciso do que outras linguagens de uso geral, como Java, reduzindo a quantidade de código que os desenvolvedores precisam escrever. Outro benefício da abordagem combinada objeto-funcional é que os recursos que funcionam bem em pequenos programas tendem a aumentar a eficiência quando executados em ambientes maiores, o que torna a linguagem altamente flexível e **escalável**, de onde surgiu seu nome (**SCA**lable **LA**nguage).
  
 ## Origens e Influências
 
- Scala foi originalmente escrito por Martin Odersky e seu grupo na École Polytechnique Federale de Lausanne, na Suíça. Seu trabalho anterior incluiu a criação da linguagem Funnel, que compartilhava algumas características com o Scala, mas não empregava as JVMs como mecanismo de execução. Odersky começou a trabalhar no Scala em 2001 e continua a desempenhar um papel de liderança no seu desenvolvimento.
- 
- Scala não é uma extensão de Java, apesar de ser similar ao mesmo, mas é completamente interoperável com ele. Scala traduz para Java bytecodes, e a eficiência de compilar programas é igualmente ao do Java. Uma segunda implementação de Scala compila **.NET**. O design do Scala começou em 2001. Um primeiro lançamento ao público foi em 2003. Em 2006, uma segunda versão remodelada foi lançada como Scala v 2.0. Desde então a linguagem tem ganhado popularidade.
+Scala foi originalmente escrito por Martin Odersky e seu grupo na École Polytechnique Federale de Lausanne, na Suíça. Seu trabalho anterior incluiu a criação da linguagem Funnel, que compartilhava algumas características com o Scala, mas não empregava as JVMs como mecanismo de execução. Odersky começou a trabalhar no Scala em 2001 e continua a desempenhar um papel de liderança no seu desenvolvimento.
 
- Em Janeiro de 2011, uma bolsa de pesquisa de cinco anos foi concedida ao grupo Scala, pelo Conselho Europeu de Investigação (CEI) com o valor total de €2,3 milhões. Já em Maio do mesmo ano, Odersky e seus colaboradores lançaram uma empresa, a Typesafe Inc. (posteriormente viria a ser chamada de Lightbend Inc.), a qual tinha como intuito fornecer à Scala suporte comercial, treinamento e serviços diversos. Isso só foi possível em decorrência do investimento que a Typesafe recebeu da Greylock Partners, no valor de $3 milhões. 
- 
- Com influências de C e Java na implementação, em Scala são utilizados os mesmos operadores e controles de estruturas bem similares. 
- 
- As principais diferenças sintáticas são:
+Scala não é uma extensão de Java, porém é completamente interoperável com ela. A compilação de programas em Scala traduz o código para Java bytecodes, e sua eficiência é igual à de Java. Uma consequência dessa interoperabilidade entre as duas é a possibilidade de utilizar Scala para desenvolvimento Android, comumente realizado em Java.  
+Outras implementação de Scala permite a compilação em JavaScript, com **Scala.js**, o que permite utilizar a linguagem para desenvolvimento web.  
+O design do Scala começou em 2001, tendo seu primeiro lançamento ao público em 2003. Em 2006, uma segunda versão remodelada foi lançada como Scala v 2.0 e, desde então, a linguagem tem ganhado popularidade.
 
-  * Definições começam com uma palavra reservada.
-  * Em Scala não precisamos declarar explicitamente o tipo das variáveis, pois o próprio compilador infere os tipos no momento do uso delas, o que traz grande flexibilidade na programação.
-  * O tipo Array é escrito como Array[T] em vez de T[], e o acesso aos elementos do array é feito, por exemplo, a(i) em vez de a[i].
-  * Funções podem ser aninhadas dentro de outras funções. Funções aninhadas podem acessar parâmetros e variáveis locais anexando funções.
-  
-  A linguagem Scala está sendo usada em diversas empresas, como por exemplo, o Twitter, o GitHub e o FourSquare, e em diversos projetos OpenSource famosos, como por exemplo, o Apache Spark.
-  
+Em Janeiro de 2011, uma bolsa de pesquisa de cinco anos foi concedida ao grupo Scala, pelo Conselho Europeu de Investigação (CEI) com o valor total de €2,3 milhões. Já em Maio do mesmo ano, Odersky e seus colaboradores lançaram uma empresa, a Typesafe Inc. (posteriormente viria a ser chamada de Lightbend Inc.), a qual tinha como intuito fornecer à Scala suporte comercial, treinamento e serviços diversos. Isso só foi possível em decorrência do investimento que a Typesafe recebeu da Greylock Partners, no valor de $3 milhões. 
+
+Com influências de C e Java na implementação, em Scala são utilizados os mesmos operadores e controles de estruturas bem similares. 
+
+As principais diferenças sintáticas são:
+
+* Definições começam com uma palavra reservada.
+* Em Scala não precisamos declarar explicitamente o tipo das variáveis, pois o próprio compilador infere os tipos no momento do uso delas, o que traz grande flexibilidade na programação.
+* O tipo Array é escrito como Array[T] em vez de T[], e o acesso aos elementos do array é feito, por exemplo, a(i) ao invés de a[i].
+* Diferentemente de Java, Scala não exige ";" ao final de comandos
+
+A linguagem Scala está sendo usada em diversas empresas, como por exemplo, o Twitter, o GitHub e o FourSquare, e em diversos projetos OpenSource famosos, como por exemplo, o Apache Spark.  
+
+As principais frentes da computação que utilizam Scala atualmente são: Engenharia de Software e Engenharia de dados. Discutiremos sobre o porque de essas áreas adotarem esta linguagem mais a frente.  
+
+* Funções podem ser aninhadas dentro de outras funções. Funções aninhadas podem acessar parâmetros e variáveis locais anexando funções (Closures).
+
 ## Classificação
 
- Scala é puramente orientada a objetos. Tipos e comportamento dos objetos são descritos pelas classes e traços. Abstrações de classes são estendidas por "subclassing" e um flexível mecanismo de "mixin-based composition" como uma forma "limpa" de substituição a heranças múltiplas. 
- 
- Classes em Scala são templates estáticos que podem ser instanciados como vários objetos em tempo de execução.
+Scala é puramente orientada a objetos, tipos e comportamento dos objetos são descritos pelas classes e traços. Abstrações de classes são estendidas por "subclassing" e um flexível mecanismo de "mixin-based composition" como uma forma "limpa" de substituição a heranças múltiplas. 
 
- Scala é também uma linguagem funcional e fornece uma sintaxe "leve" para definição de funções anônimas, suporta funções de alta ordem, permite que funções sejam aninhadas (funções são passadas como parâmetros dentro de outras funções, são tratadas como objetos), e suporta currying. Classes Scala e seu suporte interno para pattern matching modela tipos algébricos usados em muitas linguagens de programação funcionais. Além disso, sua noção de "pattern matching" natural é estendida para o processamento de arquivos XML com a ajuda de expressões regulares. Neste contexto, a linguagem se torna de grande valia para o processamento de sintaxes futuras. Estas características fazem com que o Scala seja ideal para o desenvolvimento de aplicações como web services.
- ```
- - Pattern Matching: Funciona mais ou menos como um Switch/Case, mas é muito mais poderoso,
- permitindo a comparação utilizando expressões regulares.
- - Funções de Alta Ordem: Em Scala funções são objetos, por isso podemos utilizá-las de muitas
- formas, como por exemplo, passá-las como parâmetros para outras funções.
- - Currying: É uma técnica de transformação de uma função que recebe múltiplos parâmetros de
- forma que ela pode ser chamada como uma cadeia de funções que recebem somente um parâmetro cada.
-```
- Scala possui tipagem estática.
-```
-Tipagem Estática é a capacidade de uma linguagem ajudar na segurança de tipos, onde, a partir do
-momento que uma linguagem determina o tipo de uma variável, esse tipo não pode ser alterado durante
-a compilação, fazendo com que o programador não se preocupe tanto pois o compilador acusará erro
-caso seja alterado o tipo de uma variável.
-```
- 
- E como dito anteriormente, empresas importantes como o Twitter, Foursquare, Linkedin e Quora adotaram a linguagem para desenvolvimento de seus serviços. Uma das primeiras diferenças entre Scala e uma linguagem como Java é que Scala tem maior
-foco no paradigma funcional.
+Classes em Scala são templates estáticos que podem ser instanciados como vários objetos em tempo de execução.
 
+Scala é também uma linguagem funcional e fornece uma sintaxe "leve" para definição de funções anônimas, suporta funções de alta ordem, permite que funções sejam aninhadas, permitindo a criação de closures, e suporta currying (uma funcionalidade característica de linguagens funcionais). Classes Scala e seu suporte interno para pattern matching modela tipos algébricos usados em muitas linguagens de programação funcionais. Além disso, sua noção de "pattern matching" natural é estendida para o processamento de arquivos XML com a ajuda de expressões regulares. Neste contexto, a linguagem se torna de grande valia para o processamento de sintaxes futuras. Estas características fazem com que o Scala seja ideal para o desenvolvimento de aplicações como web services.
+
+- Pattern Matching: Funciona mais ou menos como um Switch/Case, mas é muito mais poderoso,
+permitindo a comparação utilizando expressões regulares.
+- Funções de Alta Ordem: Em Scala funções são objetos, por isso podemos utilizá-las de muitas
+formas, como por exemplo, passá-las como parâmetros para outras funções.
+- Currying: É uma técnica de transformação de uma função que recebe múltiplos parâmetros de
+forma que ela pode ser chamada como uma cadeia de funções que recebem somente um parâmetro cada.
+
+Scala possui tipagem estática, ou seja, os tipos de suas variáveis são **imutáveis** o que pode auxiliar na segurança de tipos. Já que, uma vez determinado o tipo de uma variável, este não pode ser alterado durante a compilação e execução do programa.  
+Além disso, Scala possui inferência de tipos, ou seja, podemos omitir a declaração do tipo de uma variável que, mesmo assim, a linguagem o descobriria e atribuiria este à variável.
+
+```Scala
+var exemplo: Int = 5 //com tipo especificado
+var exemplo = 5.1 //com tipo inferido
+```
+Output:
+```bash
+exemplo: Int = 5
+exemplo: Double = 5.1
+```
 ## Exemplos de Código
 
 ### Hello World!

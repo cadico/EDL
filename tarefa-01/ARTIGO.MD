@@ -6,7 +6,7 @@
 
 Scala foi originalmente escrito por Martin Odersky e seu grupo na École Polytechnique Federale de Lausanne, na Suíça. Seu trabalho anterior incluiu a criação da linguagem Funnel, que compartilhava algumas características com o Scala, mas não empregava as JVMs como mecanismo de execução. Odersky começou a trabalhar no Scala em 2001 e continua a desempenhar um papel de liderança no seu desenvolvimento.
 
-Scala não é uma extensão de Java, porém é completamente interoperável com ela. A compilação de programas em Scala traduz o código para Java bytecodes, e sua eficiência é igual à de Java. Uma consequência dessa interoperabilidade entre as duas é a possibilidade de utilizar Scala para desenvolvimento Android, comumente realizado em Java.  
+Scala não é uma extensão de Java, apesar de completamente interoperável com ela. A compilação de programas em Scala traduz o código para Java bytecodes, e sua eficiência é igual à de Java. Uma consequência dessa interoperabilidade entre as duas é a possibilidade de utilizar Scala para desenvolvimento Android, comumente realizado em Java.  
 Outras implementação de Scala permite a compilação em JavaScript, com **Scala.js**, o que permite utilizar a linguagem para desenvolvimento web.  
 O design do Scala começou em 2001, tendo seu primeiro lançamento ao público em 2003. Em 2006, uma segunda versão remodelada foi lançada como Scala v 2.0 e, desde então, a linguagem tem ganhado popularidade.
 
@@ -29,16 +29,13 @@ As principais frentes da computação que utilizam Scala atualmente são: Engenh
 
 ## Classificação
 
-Scala é puramente orientada a objetos, tipos e comportamento dos objetos são descritos pelas classes e traços. Abstrações de classes são estendidas por "subclassing" e um flexível mecanismo de "mixin-based composition" como uma forma "limpa" de substituição a heranças múltiplas. 
-
-Classes em Scala são templates estáticos que podem ser instanciados como vários objetos em tempo de execução.
+Scala é puramente orientada a objetos, e os tipos e comportamento dos objetos são descritos pelas classes e traços. As Classes em Scala são templates estáticos que podem ser instanciados como vários objetos em tempo de execução.
 
 Scala é também uma linguagem funcional e fornece uma sintaxe "leve" para definição de funções anônimas, suporta funções de alta ordem, permite que funções sejam aninhadas, permitindo a criação de closures, e suporta currying (uma funcionalidade característica de linguagens funcionais). Classes Scala e seu suporte interno para pattern matching modela tipos algébricos usados em muitas linguagens de programação funcionais. Além disso, sua noção de "pattern matching" natural é estendida para o processamento de arquivos XML com a ajuda de expressões regulares. Neste contexto, a linguagem se torna de grande valia para o processamento de sintaxes futuras. Estas características fazem com que o Scala seja ideal para o desenvolvimento de aplicações como web services.
 
 - Pattern Matching: Funciona mais ou menos como um Switch/Case, mas é muito mais poderoso,
 permitindo a comparação utilizando expressões regulares.
-- Funções de Alta Ordem: Em Scala funções são objetos, por isso podemos utilizá-las de muitas
-formas, como por exemplo, passá-las como parâmetros para outras funções.
+- Funções de Alta Ordem: Em Scala funções são objetos, por isso podemos utilizá-las de muitas formas, como por exemplo, passá-las como parâmetros para outras funções.
 - Currying: É uma técnica de transformação de uma função que recebe múltiplos parâmetros de
 forma que ela pode ser chamada como uma cadeia de funções que recebem somente um parâmetro cada.
 
@@ -201,7 +198,7 @@ exemplificando Lazy...
 adicionando...
 5
 ```
-Nesse exemplo, é possível enxergar que: no método estático, a função de soma foi chamada primeiramente para calcular o valor da expressão passada como argumento, já no método Lazy, este é executado e só chama a função de soma quando a expressão passada como argumento foi utilizada dentro do próprio método Lazy. A forma avaliação de expressões de outras linguagens estáticas como C++, por exemplo, segue o mesmo padrão do utilizado por default em Scala (expressões são avaliadas imediatamente), porém estas não oferecem a possibilidade de utilizar Lazy Evaluation:
+Nesse exemplo, é possível enxergar que, no método estático, a função de soma foi chamada primeiramente para calcular o valor da expressão passada como argumento, já no método Lazy, este é executado e só chama a função de soma quando a expressão passada como argumento foi utilizada dentro do próprio método Lazy. A forma avaliação de expressões de outras linguagens estáticas como C++, por exemplo, segue o mesmo padrão do utilizado por default em Scala (expressões são avaliadas imediatamente), porém estas não oferecem a possibilidade de utilizar Lazy Evaluation:
 
 ```CPP 
 #include <iostream>
